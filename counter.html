@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Counter</title>
+      </head>
+      
+      <style>
+        .inner  {display: inline-block;}
+        #outer  {width:100%; justify-content: center;}
+        .numberWidth{width: 50px;color: black;}
+        .box{border-style: groove; border:1px solid black;width:200px;}
+        .center{justify-content: center;}
+      </style>
+      <body style="background-color:lightblue">
+        <div id="app">
+          <center>
+          <div class='box'>
+              <div>
+                  <button class='inner' v-on:click="value1 += 1; updateSum();">+</button>
+                  <p class='inner numberWidth'>{{value2}}</p>
+                  <button class='inner' v-on:click="value1 -= 1; updateSum();">-</button>
+              </div>
+              <div>
+                <button class='inner' v-on:click="value2 += 1; updateSum();">+</button>
+                <p class='inner numberWidth'>{{value2}}</p>
+                <button class='inner' v-on:click="value2 -= 1; updateSum();">-</button>
+              </div>
+          </div>
+          <p>sum: {{sum}}</p>
+        </center>
+        </div>
+      </body>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+      <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+              value1:0,
+              value2:0,
+              sum:0,
+            },
+            methods: {
+              updateSum: function(){
+                this.sum = this.value1 + this.value2;
+              }
+            }
+        })
+    </script>
+</html>
