@@ -10,18 +10,12 @@
         #outer  {width:100%; justify-content: center;}
         .numberWidth{width: 20% ;color: black;}
         .box{border-style: groove;
-
-border: "blue";
-
-border-color: #80391e;
-
-border-width: 5px;
-
-width: 30%;
-
-margin:0 auto;
-
-color: #80391e;}
+          border: "blue";
+          border-color: #80391e;
+          border-width: 3px;
+          width: 30%;
+          margin:0 auto;
+          color: #80391e;}
         .center{justify-content: center;}
       </style>
       <body style="background-color:lightblue">
@@ -30,7 +24,7 @@ color: #80391e;}
           <div class='box'>
               <div>
                   <button class='inner' v-on:click="value1 += 1; updateSum();">+</button>
-                  <p class='inner numberWidth'>{{value2}}</p>
+                  <p class='inner numberWidth'>{{value1}}</p>
                   <button class='inner' v-on:click="value1 -= 1; updateSum();">-</button>
               </div>
               <div>
