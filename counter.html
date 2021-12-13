@@ -8,14 +8,15 @@
       <style>
         .inner  {display: inline-block;}
         #outer  {width:100%; justify-content: center;}
-        .numberWidth{width: 20% ;color: black;}
+        .numberWidth{width: 20%; color: black;}
+        .buttonWidth{width:25px;}
         .box{border-style: groove;
           border: "blue";
-          border-color: #80391e;
+          border-color: #bbff00;
+          color: #80391e;
           border-width: 3px;
           width: 30%;
-          margin:0 auto;
-          color: #80391e;}
+          margin:0 auto;}
         .center{justify-content: center;}
       </style>
       <body style="background-color:lightblue">
@@ -23,14 +24,14 @@
           <center>
           <div class='box'>
               <div>
-                  <button class='inner' v-on:click="value1 += 1; updateSum();">+</button>
+                  <button class='inner buttonWidth' v-on:click="addValueAndSum(1);">+</button>
                   <p class='inner numberWidth'>{{value1}}</p>
-                  <button class='inner' v-on:click="value1 -= 1; updateSum();">-</button>
+                  <button class='inner buttonWidth' v-on:click="subtractValueAndSum(1);">-</button>
               </div>
               <div>
-                <button class='inner' v-on:click="value2 += 1; updateSum();">+</button>
+                <button class='inner buttonWidth' v-on:click="addValueAndSum(2);">+</button>
                 <p class='inner numberWidth'>{{value2}}</p>
-                <button class='inner' v-on:click="value2 -= 1; updateSum();">-</button>
+                <button class='inner buttonWidth' v-on:click="subtractValueAndSum(2);">-</button>
               </div>
           </div>
           <p>sum: {{sum}}</p>
@@ -47,7 +48,14 @@
               sum:0,
             },
             methods: {
-              updateSum: function(){
+              addValueAndSum: function(value){
+                if (value == 1 ){this.value1 += 1;}
+                if (value == 2 ){this.value2 += 1;}
+                this.sum = this.value1 + this.value2;
+              },
+              subtractValueAndSum: function(value){
+                if (value == 1 ){this.value1 -= 1;}
+                if (value == 2 ){this.value2 -= 1;}
                 this.sum = this.value1 + this.value2;
               }
             }
